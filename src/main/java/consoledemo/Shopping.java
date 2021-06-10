@@ -3,6 +3,7 @@ package consoledemo;
 import payment.Basket;
 import payment.Cashier;
 import payment.ItemTable;
+import payment.Price;
 
 
 public class Shopping {
@@ -67,7 +68,7 @@ public class Shopping {
 
     public void calc() {
         //入力を求めて1 3(番号  個数)
-        int totalPrice = cashier.calcTotalPrice(basket);
+        Price totalPrice = cashier.calcTotalPrice(basket);
         System.out.println("合計金額: " + totalPrice);
     }
 
