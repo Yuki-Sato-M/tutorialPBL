@@ -11,6 +11,10 @@ public class ItemIncludedTax implements Item {
         this.price = price;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getId() {
         return id;
     }

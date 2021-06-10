@@ -20,28 +20,29 @@ public class Shopping {
         Input input = new Input();
 
         while (true) {
+            System.out.println("====================");
             displayMenu();
             input();
             calc();
-
+            System.out.println("====================");
+            System.out.println();
 
         }
     }
 
     public void displayMenu() {
-        System.out.println("====================");
         System.out.println("0 : 購入を終了する");
         for (ItemTable itemTable : ItemTable.values()) {
             System.out.println(itemTable);
         }
 
-        System.out.println("====================");
     }
 
     public void input() {
         Input input = new Input();
         int itemNum = input.getInt("商品番号を入力してください");
         if (isEnd(itemNum)) {
+            calc();
             System.exit(0);
         }
         int itemAmount = input.getInt("購入個数を入力してください");
@@ -69,7 +70,7 @@ public class Shopping {
     public void calc() {
         //入力を求めて1 3(番号  個数)
         Price totalPrice = cashier.calcTotalPrice(basket);
-        System.out.println("合計金額: " + totalPrice);
+        System.out.println("割引後金額 : "+ totalPrice);
     }
 
 }

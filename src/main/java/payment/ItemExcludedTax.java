@@ -6,6 +6,10 @@ public class ItemExcludedTax implements Item {
     private final int price;
     private final double TAX_RATE = 0.08;
 
+    public String getName() {
+        return name;
+    }
+
     public ItemExcludedTax(int id, String name, int price) {
         this.id = id;
         this.name = name;
