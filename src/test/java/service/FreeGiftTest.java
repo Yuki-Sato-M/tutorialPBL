@@ -16,4 +16,21 @@ class FreeGiftTest {
         assertEquals(420, discountedPrice);
     }
 
+    @Test
+    void タバコを21個買った時に割引される金額420円が返ってくる() {
+        FreeGift freeGift = new FreeGift();
+        Basket basket = new Basket();
+        basket.add(ItemTable.CIGARETTES, 21);
+        int discountedPrice = freeGift.getDiscountPrice(basket);
+        assertEquals(420, discountedPrice);
+    }
+
+    @Test
+    void タバコを22個買った時に割引される金額840円が返ってくる() {
+        FreeGift freeGift = new FreeGift();
+        Basket basket = new Basket();
+        basket.add(ItemTable.CIGARETTES, 22);
+        int discountedPrice = freeGift.getDiscountPrice(basket);
+        assertEquals(840, discountedPrice);
+    }
 }

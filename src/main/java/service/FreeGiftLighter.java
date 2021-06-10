@@ -14,11 +14,19 @@ public class FreeGiftLighter implements Service{
         int salesPrice = 0;
 
         int lighterNum = itemList.get(ItemTable.LIGHTER);
+        int lighterPrice = ItemTable.LIGHTER.getItem().getPriceIncludedTax();
         int cigarettesNum = itemList.get(ItemTable.CIGARETTES);
         int mensoleCigarettesNum = itemList.get(ItemTable.MENSOLE_CIGARETTES);
-        int salesNum = (cigarettesNum + mensoleCigarettesNum) / FREE_GIFT_UNIT_LIGHTER;
-
-
+        int salesNum = cigarettesNum / FREE_GIFT_UNIT_LIGHTER + mensoleCigarettesNum / FREE_GIFT_UNIT_LIGHTER;
+        if(lighterNum > 0){
+            if(lighterNum > salesNum){
+                salesNum = salesNum;
+            }
+            else{
+                salesNum = lighterNum;
+            }
+        }
+        return lighterPrice * salesNum;
 
 //        if(cigarettesNum / FREE_GIFT_UNIT_LIGHTER > 0 && lighterNum > 0){
 //            int salesNum = cigarettesNum / FREE_GIFT_UNIT_LIGHTER;
@@ -30,6 +38,5 @@ public class FreeGiftLighter implements Service{
 //            int itemPrice = entry.getKey().getItem().getPriceIncludedTax();
 //            salesPrice += itemPrice * salesNum;
 //        }
-        return salesPrice;
     }
 }
