@@ -43,6 +43,6 @@ class ServiceHandlerTest {
         basket.add(ItemTable.TEA);
         ServiceHandler serviceHandler = new ServiceHandler();
         int discountPrice = serviceHandler.getMaxDiscountPrice(basket);
-        assertEquals(108, discountPrice);
+        assertEquals(40, discountPrice);
     }
 }

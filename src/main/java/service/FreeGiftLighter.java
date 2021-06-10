@@ -17,13 +17,11 @@ public class FreeGiftLighter implements Service{
         int cigarettesNum = itemList.get(ItemTable.CIGARETTES);
         int mensoleCigarettesNum = itemList.get(ItemTable.MENSOLE_CIGARETTES);
         int salesNum = cigarettesNum / FREE_GIFT_UNIT_LIGHTER + mensoleCigarettesNum / FREE_GIFT_UNIT_LIGHTER;
-        if(lighterNum > 0){
-            if(lighterNum > salesNum){
-                salesNum = salesNum;
-            }
-            else{
-                salesNum = lighterNum;
-            }
+        if (lighterNum == 0) {
+            return 0;
+        }
+        if (lighterNum <= salesNum) {
+            salesNum = lighterNum;
         }
         return lighterPrice * salesNum;
     }
