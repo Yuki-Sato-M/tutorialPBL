@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Cashier {
 
-    public int calcTotalPrice(Basket basket) {
+    public Price calcTotalPrice(Basket basket) {
         int totalPrice = 0;
         Map<ItemTable, Integer> itemList = basket.lookInside();
 
@@ -14,6 +14,6 @@ public class Cashier {
             totalPrice += itemTable.getItem().getPriceIncludedTax() * amount;
         }
 
-        return totalPrice;
+        return new Price(totalPrice);
     }
 }

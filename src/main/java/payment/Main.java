@@ -25,7 +25,7 @@ public class Main {
             }
         }
         Cashier cashier = new Cashier();
-        int totalPrice = cashier.calcTotalPrice(basket);
+        Price totalPrice = cashier.calcTotalPrice(basket);
         System.out.println("合計金額: " + totalPrice);
     }
 }
