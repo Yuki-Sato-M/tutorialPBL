@@ -11,7 +11,9 @@ class CashierTest {
     @Test
     public void 何も買わないとき合計金額が0円になる () {
         cashier = new Cashier();
-        assertEquals(0, cashier.calcTotalPrice(new Basket()));
+        String str = cashier.calcTotalPrice(new Basket()).toString();
+        assertTrue(str.matches(".*0円"));
+
     }
 
     @Test
@@ -20,7 +22,7 @@ class CashierTest {
         basket.add(ItemTable.CIGARETTES, 2);
         basket.add(ItemTable.GRAPE, 4);
         cashier = new Cashier();
-        assertEquals(1488, cashier.calcTotalPrice(basket));
+        assertEquals("1,488円", cashier.calcTotalPrice(basket).toString());
     }
 
 }

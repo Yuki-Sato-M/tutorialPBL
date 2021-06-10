@@ -23,6 +23,7 @@ public class ItemExcludedTax implements Item {
 
     @Override
     public String toString() {
-        return id + " : " + name + " : " + getPriceIncludedTax();
+        String strPrice = new Price(getPriceIncludedTax()).toString();
+        return id + " : " + name + " : " + strPrice;
     }
 }
