@@ -58,4 +58,13 @@ public class FreeGiftLighterTest {
         int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
         assertEquals(216, discountedPrice);
     }
+
+    @Test
+    void タバコを10個買ったとき無料になる0円が返ってくる() {
+        FreeGiftLighter freeGiftLighter = new FreeGiftLighter();
+        Basket basket = new Basket();
+        basket.add(ItemTable.CIGARETTES, 10);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        assertEquals(0, discountedPrice);
+    }
 }

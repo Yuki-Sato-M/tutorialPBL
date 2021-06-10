@@ -33,4 +33,13 @@ class FreeGiftTest {
         int discountedPrice = freeGift.getDiscountPrice(basket);
         assertEquals(840, discountedPrice);
     }
+
+    @Test
+    void 鮭弁当を32個買った時に割引される金額800円が返ってくる() {
+        FreeGift freeGift = new FreeGift();
+        Basket basket = new Basket();
+        basket.add(ItemTable.SYAKEBEN, 32);
+        int discountedPrice = freeGift.getDiscountPrice(basket);
+        assertEquals(864, discountedPrice);
+    }
 }
