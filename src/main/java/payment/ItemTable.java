@@ -10,7 +10,7 @@ public enum ItemTable {
     CIGARETTES (new ItemIncludedTax(6, "タバコ", 420)),
     MENSOLE_CIGARETTES(new ItemIncludedTax(7, "メンソールタバコ", 440)),
     LIGHTER (new ItemExcludedTax(8, "ライター", 100)),
-    TEA (new ItemExcludedTax(9, "お茶", 80)),
+    TEA (new ItemExcludedTax(9, "お茶", 801)),
     COFFEE (new ItemExcludedTax(10, "コーヒー", 100));
 
 
