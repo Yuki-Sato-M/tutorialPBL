@@ -1,8 +1,15 @@
 package payment;
 
+import service.ServiceHandler;
+
 import java.util.Map;
 
 public class Cashier {
+    private final ServiceHandler serviceHandler;
+
+    public Cashier() {
+        serviceHandler = new ServiceHandler();
+    }
 
     public Price calcTotalPrice(Basket basket) {
         int totalPrice = 0;
@@ -14,6 +21,8 @@ public class Cashier {
             totalPrice += itemTable.getItem().getPriceIncludedTax() * amount;
         }
 
-        return new Price(totalPrice);
+        int discountedPrice = totalPrice - serviceHandler.getMaxDiscountPrice(basket);
+
+        return new Price(discountedPrice);
     }
 }

@@ -1,6 +1,7 @@
 package payment;
 
 import org.junit.jupiter.api.Test;
+import service.ServiceHandler;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,6 +24,19 @@ class CashierTest {
         basket.add(ItemTable.GRAPE, 4);
         cashier = new Cashier();
         assertEquals("1,488円", cashier.calcTotalPrice(basket).toString());
+    }
+
+    @Test
+    void りんご6個とタバコ10個とのり弁当2個とコーヒー1つとお茶1つのとき割引の最大値であるりんごの割引40円が返ってくる() {
+        Basket basket = new Basket();
+        basket.add(ItemTable.APPLE, 6);
+        basket.add(ItemTable.CIGARETTES, 10);
+        basket.add(ItemTable.NORIBEN, 2);
+        basket.add(ItemTable.COFFEE);
+        basket.add(ItemTable.TEA);
+        cashier = new Cashier();
+        Price discountedPrice = cashier.calcTotalPrice(basket);
+        assertEquals("5,758円", discountedPrice.toString());
     }
 
 }
