@@ -17,11 +17,12 @@ class ReceiptTest {
         basket = new Basket();
         basket.add(ItemTable.APPLE, 3);
         basket.add(ItemTable.GRAPE, 10);
-        String strE = "【購入したもの】" + System.lineSeparator() +
+        String strE = System.lineSeparator() +
+                "【購入したもの】" + System.lineSeparator() +
                 "りんご x 3個 = 324円" + System.lineSeparator() +
                 "ぶどう x 10個 = 1,620円" + System.lineSeparator() +
                 "合計金額 : 1,944円" + System.lineSeparator() +
-                "割引後金額 : 1,924円";
+                "割引後金額 : 1,924円" + System.lineSeparator();
 
         receipt.init();
         Price totalPrice = new Price(0);
