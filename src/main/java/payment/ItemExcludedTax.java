@@ -5,15 +5,17 @@ public class ItemExcludedTax implements Item {
     private final String name;
     private final int price;
     private final double TAX_RATE = 0.08;
+    private final String category;
 
     public String getName() {
         return name;
     }
 
-    public ItemExcludedTax(int id, String name, int price) {
+    public ItemExcludedTax(int id, String name, int price, String category) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.category = category;
     }
 
     public int getId() {
@@ -29,5 +31,9 @@ public class ItemExcludedTax implements Item {
     public String toString() {
         String strPrice = new Price(getPriceIncludedTax()).toString();
         return id + " : " + name + " : " + strPrice;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }
