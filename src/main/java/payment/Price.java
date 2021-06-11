@@ -19,8 +19,12 @@ public class Price {
     //Price total
     //total　= total.add(計算結果)
 
-    public Price mul(int num) {
-        return new Price(this.getValue() * num);
+    public Price mul(int times) {
+        return new Price(this.getValue() * times);
+    }
+
+    public Price mul(double times) {
+        return new Price((int)(this.getValue() * times));
     }
 
     public int getValue() {

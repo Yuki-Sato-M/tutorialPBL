@@ -1,8 +1,10 @@
 package service;
 
 import payment.Basket;
+import payment.Price;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ServiceHandler {
@@ -16,11 +18,11 @@ public class ServiceHandler {
         serviceList.add(new DiscountBentoWithDrink());
     }
 
-    public int getMaxDiscountPrice(Basket basket) {
-        List<Integer> discountPriceList = new ArrayList<>();
+    public Price getMaxDiscountPrice(Basket basket) {
+        List<Price> discountPriceList = new ArrayList<>();
         for(Service service : serviceList){
             discountPriceList.add(service.getDiscountPrice(basket));
         }
-        return discountPriceList.stream().max(Integer::compareTo).get();
+        return discountPriceList.stream().max(Comparator.comparing(Price::getValue)).get();
     }
 }

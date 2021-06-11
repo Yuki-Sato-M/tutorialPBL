@@ -12,7 +12,7 @@ class FreeGiftTest {
         FreeGift freeGift = new FreeGift();
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 11);
-        int discountedPrice = freeGift.getDiscountPrice(basket);
+        int discountedPrice = freeGift.getDiscountPrice(basket).getValue();
         assertEquals(420, discountedPrice);
     }
 
@@ -21,7 +21,7 @@ class FreeGiftTest {
         FreeGift freeGift = new FreeGift();
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 21);
-        int discountedPrice = freeGift.getDiscountPrice(basket);
+        int discountedPrice = freeGift.getDiscountPrice(basket).getValue();
         assertEquals(420, discountedPrice);
     }
 
@@ -30,7 +30,7 @@ class FreeGiftTest {
         FreeGift freeGift = new FreeGift();
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 22);
-        int discountedPrice = freeGift.getDiscountPrice(basket);
+        int discountedPrice = freeGift.getDiscountPrice(basket).getValue();
         assertEquals(840, discountedPrice);
     }
 
@@ -39,7 +39,7 @@ class FreeGiftTest {
         FreeGift freeGift = new FreeGift();
         Basket basket = new Basket();
         basket.add(ItemTable.SYAKEBEN, 32);
-        int discountedPrice = freeGift.getDiscountPrice(basket);
+        int discountedPrice = freeGift.getDiscountPrice(basket).getValue();
         assertEquals(864, discountedPrice);
     }
 }
