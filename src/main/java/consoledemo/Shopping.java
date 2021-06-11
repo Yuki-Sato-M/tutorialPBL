@@ -1,9 +1,6 @@
 package consoledemo;
 
-import payment.Basket;
-import payment.Cashier;
-import payment.ItemTable;
-import payment.Price;
+import payment.*;
 
 
 public class Shopping {
@@ -16,14 +13,11 @@ public class Shopping {
     }
 
     public void run() {
-        //
-        Input input = new Input();
-
         while (true) {
             System.out.println("====================");
             displayMenu();
             input();
-            calc();
+            printReceipt();
             System.out.println("====================");
             System.out.println();
 
@@ -68,9 +62,13 @@ public class Shopping {
     }
 
     public void calc() {
-        //入力を求めて1 3(番号  個数)
         Price totalPrice = cashier.calcTotalPrice(basket);
         System.out.println("割引後金額 : "+ totalPrice);
+    }
+
+    public void printReceipt() {
+        Receipt receipt = cashier.getReceipt(basket);
+        System.out.println(receipt);
     }
 
 }
