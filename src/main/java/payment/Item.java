@@ -1,7 +1,7 @@
 package payment;
 
 public interface Item {
-    int getPriceIncludedTax();
+    Price getPriceIncludedTax();
     int getId();
     String getName();
 }
