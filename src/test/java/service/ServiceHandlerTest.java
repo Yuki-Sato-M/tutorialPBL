@@ -15,7 +15,7 @@ class ServiceHandlerTest {
         basket.add(ItemTable.GRAPE);
         basket.add(ItemTable.NORIBEN);
         ServiceHandler serviceHandler = new ServiceHandler();
-        int discountPrice = serviceHandler.getMaxDiscountPrice(basket);
+        int discountPrice = serviceHandler.getMaxDiscountPrice(basket).getValue();
         assertEquals(0, discountPrice);
     }
 
@@ -29,7 +29,7 @@ class ServiceHandlerTest {
         basket.add(ItemTable.COFFEE);
         basket.add(ItemTable.TEA);
         ServiceHandler serviceHandler = new ServiceHandler();
-        int discountPrice = serviceHandler.getMaxDiscountPrice(basket);
+        int discountPrice = serviceHandler.getMaxDiscountPrice(basket).getValue();
         assertEquals(420, discountPrice);
     }
 
@@ -42,7 +42,7 @@ class ServiceHandlerTest {
         basket.add(ItemTable.COFFEE);
         basket.add(ItemTable.TEA);
         ServiceHandler serviceHandler = new ServiceHandler();
-        int discountPrice = serviceHandler.getMaxDiscountPrice(basket);
+        int discountPrice = serviceHandler.getMaxDiscountPrice(basket).getValue();
         assertEquals(40, discountPrice);
     }
 }

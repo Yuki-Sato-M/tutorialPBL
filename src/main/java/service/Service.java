@@ -1,6 +1,7 @@
 package service;
 
 import payment.Basket;
+import payment.Price;
 
 interface Service {
     /**
@@ -8,5 +9,5 @@ interface Service {
      * @param basket
      * @return 割引される金額
      */
-    int getDiscountPrice(Basket basket);
+    Price getDiscountPrice(Basket basket);
 }

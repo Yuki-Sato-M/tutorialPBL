@@ -14,7 +14,7 @@ class DiscountBentoWithDrinkTest {
         DiscountBentoWithDrink discountBentoWithDrink = new DiscountBentoWithDrink();
         basket.add(ItemTable.NORIBEN);
         basket.add(ItemTable.TEA);
-        int discountPrice = discountBentoWithDrink.getDiscountPrice(basket);
+        int discountPrice = discountBentoWithDrink.getDiscountPrice(basket).getValue();
         assertEquals(20, discountPrice);
     }
     @Test
@@ -26,7 +26,7 @@ class DiscountBentoWithDrinkTest {
         basket.add(ItemTable.COFFEE);
         basket.add(ItemTable.TEA);
 
-        int discountPrice = discountBentoWithDrink.getDiscountPrice(basket);
+        int discountPrice = discountBentoWithDrink.getDiscountPrice(basket).getValue();
         assertEquals(40, discountPrice);
     }
 
@@ -38,7 +38,7 @@ class DiscountBentoWithDrinkTest {
         basket.add(ItemTable.SYAKEBEN);
         basket.add(ItemTable.TEA);
 
-        int discountPrice = discountBentoWithDrink.getDiscountPrice(basket);
+        int discountPrice = discountBentoWithDrink.getDiscountPrice(basket).getValue();
         assertEquals(20, discountPrice);
     }
 }

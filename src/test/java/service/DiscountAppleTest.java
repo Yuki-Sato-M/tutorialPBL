@@ -12,7 +12,7 @@ class DiscountAppleTest {
         Basket basket = new Basket();
         DiscountApple discountApple = new DiscountApple();
         basket.add(ItemTable.APPLE, 3);
-        int discountPrice = discountApple.getDiscountPrice(basket);
+        int discountPrice = discountApple.getDiscountPrice(basket).getValue();
         assertEquals(20, discountPrice);
     }
 
@@ -21,7 +21,7 @@ class DiscountAppleTest {
         Basket basket = new Basket();
         DiscountApple discountApple = new DiscountApple();
         basket.add(ItemTable.APPLE, 7);
-        int discountPrice = discountApple.getDiscountPrice(basket);
+        int discountPrice = discountApple.getDiscountPrice(basket).getValue();
         assertEquals(40, discountPrice);
     }
 
@@ -30,7 +30,7 @@ class DiscountAppleTest {
         Basket basket = new Basket();
         DiscountApple discountApple = new DiscountApple();
         basket.add(ItemTable.APPLE, 2);
-        int discountPrice = discountApple.getDiscountPrice(basket);
+        int discountPrice = discountApple.getDiscountPrice(basket).getValue();
         assertEquals(0, discountPrice);
     }
 }

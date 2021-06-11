@@ -13,7 +13,7 @@ public class FreeGiftLighterTest {
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 10);
         basket.add(ItemTable.LIGHTER);
-        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket).getValue();
         assertEquals(108, discountedPrice);
     }
 
@@ -24,7 +24,7 @@ public class FreeGiftLighterTest {
         basket.add(ItemTable.CIGARETTES, 5);
         basket.add(ItemTable.MENSOLE_CIGARETTES, 5);
         basket.add(ItemTable.LIGHTER);
-        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket).getValue();
         assertEquals(0, discountedPrice);
     }
 
@@ -34,7 +34,7 @@ public class FreeGiftLighterTest {
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 20);
         basket.add(ItemTable.LIGHTER);
-        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket).getValue();
         assertEquals(108, discountedPrice);
     }
 
@@ -44,7 +44,7 @@ public class FreeGiftLighterTest {
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 20);
         basket.add(ItemTable.LIGHTER, 2);
-        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket).getValue();
         assertEquals(216, discountedPrice);
     }
 
@@ -55,7 +55,7 @@ public class FreeGiftLighterTest {
         basket.add(ItemTable.CIGARETTES, 10);
         basket.add(ItemTable.MENSOLE_CIGARETTES, 10);
         basket.add(ItemTable.LIGHTER, 2);
-        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket).getValue();
         assertEquals(216, discountedPrice);
     }
 
@@ -64,7 +64,7 @@ public class FreeGiftLighterTest {
         FreeGiftLighter freeGiftLighter = new FreeGiftLighter();
         Basket basket = new Basket();
         basket.add(ItemTable.CIGARETTES, 10);
-        int discountedPrice = freeGiftLighter.getDiscountPrice(basket);
+        int discountedPrice = freeGiftLighter.getDiscountPrice(basket).getValue();
         assertEquals(0, discountedPrice);
     }
 }

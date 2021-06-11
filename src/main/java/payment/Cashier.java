@@ -12,7 +12,7 @@ public class Cashier {
     }
 
     public Price calcTotalPrice(Basket basket) {
-        int totalPrice = 0;
+        Price totalPrice = new Price(0);
         Map<ItemTable, Integer> itemList = basket.lookInside();
 
         System.out.println();
@@ -21,13 +21,13 @@ public class Cashier {
             ItemTable itemTable = entry.getKey();
             int amount = entry.getValue();
             if(amount > 0){
-                System.out.println(entry.getKey().getItem().getName()+" x "+amount+"個"+" = "+new Price(entry.getKey().getItem().getPriceIncludedTax()*amount));
+                System.out.println(entry.getKey().getItem().getName()+" x "+amount+"個"+" = "+entry.getKey().getItem().getPriceIncludedTax().mul(amount));
             }
-            totalPrice += itemTable.getItem().getPriceIncludedTax() * amount;
+            totalPrice = totalPrice.add(itemTable.getItem().getPriceIncludedTax().mul(amount));
         }
-        System.out.println("合計金額 : "+new Price(totalPrice));
-        int discountedPrice = totalPrice - serviceHandler.getMaxDiscountPrice(basket);
+        System.out.println("合計金額 : "+totalPrice);
+        Price discountedPrice = totalPrice.add( serviceHandler.getMaxDiscountPrice(basket).mul(-1));
 
-        return new Price(discountedPrice);
+        return discountedPrice;
     }
 }
