@@ -1,13 +1,13 @@
 package payment;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Basket {
     private final Map<ItemTable, Integer> itemList;
 
     public Basket() {
-        itemList = new HashMap<>();
+        itemList = new LinkedHashMap<>();
         for (ItemTable itemTable : ItemTable.values()) {
             itemList.put(itemTable, 0);
         }
